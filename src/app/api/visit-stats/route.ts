@@ -1,9 +1,12 @@
 import { NextResponse } from "next/server";
 
+import {
+  getOpenPanelEventCount,
+  type OpenPanelExportMeta,
+} from "@/lib/openpanel-stats";
+
 type ExportResponse = {
-  meta?: {
-    totalCount?: number;
-  };
+  meta?: OpenPanelExportMeta;
 };
 
 export async function GET() {
@@ -40,7 +43,7 @@ export async function GET() {
     }
 
     const data = (await response.json()) as ExportResponse;
-    const totalUV = data.meta?.totalCount ?? 0;
+    const totalUV = getOpenPanelEventCount(data.meta);
 
     // 获取今日访问数据
     const today = new Date();
@@ -65,7 +68,7 @@ export async function GET() {
     }
 
     const todayData = (await todayResponse.json()) as ExportResponse;
-    const dailyUV = todayData.meta?.totalCount ?? 0;
+    const dailyUV = getOpenPanelEventCount(todayData.meta);
 
     return NextResponse.json({
       totalUV,
