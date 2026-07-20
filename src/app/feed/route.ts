@@ -1,27 +1,19 @@
-import assert from 'assert'
-import * as cheerio from 'cheerio'
 import { Feed } from 'feed'
 import { name, email } from '@/config/infoConfig'
-import { getBlogBySlug } from '@/lib/blogs'
+import { getAllBlogs } from '@/lib/blogs'
+import { site_url } from '@/config/siteConfig'
 import { promises as fs } from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 
-export async function GET(req: Request) {
-  let siteUrl = process.env.NEXT_PUBLIC_SITE_URL
+export async function GET() {
+  // 本地预览没有环境变量时，使用站点配置中的默认地址生成绝对链接。
+  const siteUrl = site_url.replace(/\/$/, '')
+  const author = email ? { name, email } : { name }
 
-  if (!siteUrl) {
-    throw Error('Missing NEXT_PUBLIC_SITE_URL environment variable')
-  }
-
-  let author = {
-    name: name,
-    email: email,
-  }
-
-  let feed = new Feed({
+  const feed = new Feed({
     title: author.name,
-    description: name + '\'s blog',
+    description: `${name} 的技术文章与实践记录`,
     author,
     id: siteUrl,
     link: siteUrl,
@@ -33,24 +25,21 @@ export async function GET(req: Request) {
     },
   })
 
-  // 直接读取博客文件
-  const blogFiles = await fs.readdir(path.join(process.cwd(), 'src/content/blog'))
-  const mdxFiles = blogFiles.filter(file => file.endsWith('.mdx'))
+  const blogs = await getAllBlogs()
 
-  for (let file of mdxFiles) {
-    const slug = file.replace(/\.mdx$/, '')
-    const filePath = path.join(process.cwd(), 'src/content/blog', file)
+  for (const blog of blogs) {
+    const filePath = path.join(process.cwd(), 'src/content/blog', `${blog.slug}.mdx`)
     const source = await fs.readFile(filePath, 'utf-8')
-    const { data, content } = matter(source)
+    const { content } = matter(source)
 
     feed.addItem({
-      title: data.title,
-      id: `${siteUrl}/blogs/${slug}`,
-      link: `${siteUrl}/blogs/${slug}`,
-      description: data.description,
+      title: blog.title,
+      id: `${siteUrl}/blogs/${blog.slug}`,
+      link: `${siteUrl}/blogs/${blog.slug}`,
+      description: blog.description,
       content: content,
       author: [author],
-      date: new Date(data.date),
+      date: new Date(blog.date),
     })
   }
 

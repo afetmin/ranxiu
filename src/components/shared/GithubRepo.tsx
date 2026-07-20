@@ -7,13 +7,13 @@ import Link from "next/link"
 export function GithubRepo() {
   return (
     <Link
-      href="https://github.com/iAmCorey/coreychiu-portfolio-template"
+      href="https://github.com/afetmin"
       target="_blank"
       rel="noopener noreferrer nofollow"
       className="group flex flex-row  justify-start items-center text-md font-medium transition hover:text-teal-500 dark:text-zinc-200 dark:hover:text-teal-500"
     >
       <GithubLogo size={18} weight="duotone" />
-      <span className="sr-only">Github Repo</span>
+      <span className="sr-only">访问 Lunxiao 的 GitHub</span>
     </Link>
   )
 }

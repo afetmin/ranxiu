@@ -234,5 +234,7 @@ export const CoolMode: React.FC<CoolModeProps> = ({ children, options }) => {
     }
   }, [options]);
 
+  // ref 对象只交给子元素与 effect 使用，不读取其 current 值。
+  // eslint-disable-next-line react-hooks/refs
   return React.cloneElement(children as React.ReactElement<{ ref: React.Ref<HTMLElement> }>, { ref });
 };

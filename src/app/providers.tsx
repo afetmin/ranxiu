@@ -11,6 +11,8 @@ function usePrevious<T>(value: T) {
     ref.current = value
   }, [value])
 
+  // 这里读取的是上一轮提交后的路由快照，不参与当前渲染计算。
+  // eslint-disable-next-line react-hooks/refs
   return ref.current
 }
 

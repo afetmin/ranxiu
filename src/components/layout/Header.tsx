@@ -8,11 +8,10 @@ import { Popover, Transition } from '@headlessui/react'
 import clsx from 'clsx'
 
 import { Container } from '@/components/layout/Container'
-import avatarImage from '@/images/avatar.jpg'
 import { navItems } from '@/config/siteConfig'
 import { ThemeToggle } from '@/components/shared/ThemeToggle'
 import { GithubRepo } from '@/components/shared/GithubRepo'
-import { name } from '@/config/infoConfig'
+import { avatarUrl, name } from '@/config/infoConfig'
 import { ChevronDownIcon, XIcon } from 'lucide-react'
 
 import TypingAnimation from "@/components/ui/typing-animation";
@@ -189,13 +188,16 @@ function Avatar({
       {...props}
     >
       <Image
-        src={avatarImage}
-        alt=""
+        src={avatarUrl}
+        alt={`${name} 的头像`}
+        width={large ? 64 : 36}
+        height={large ? 64 : 36}
         sizes={large ? '4rem' : '2.25rem'}
         className={clsx(
           'rounded-full bg-zinc-100 object-cover dark:bg-zinc-800',
           large ? 'h-16 w-16' : 'h-9 w-9',
         )}
+        unoptimized
         priority
       />
     </Link>

@@ -9,12 +9,15 @@ type VisitStats = {
 }
 
 export default function VisitData() {
+  const isConfigured = Boolean(process.env.NEXT_PUBLIC_OPENPANEL_CLIENT_ID);
   const [stats, setStats] = useState<VisitStats>({
     totalUV: '-',
     dailyUV: '-',
   });
 
   useEffect(() => {
+    if (!isConfigured) return;
+
     const fetchVisitStats = async () => {
       try {
         const response = await fetch('/api/visit-stats');
@@ -29,7 +32,9 @@ export default function VisitData() {
     fetchVisitStats();
     const interval = setInterval(fetchVisitStats, 300000);
     return () => clearInterval(interval);
-  }, []);
+  }, [isConfigured]);
+
+  if (!isConfigured) return null;
 
   return (
     <div className="flex flex-row items-center justify-center gap-2 text-sm text-gray-500 mt-2">

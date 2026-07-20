@@ -1,78 +1,42 @@
 🌍 *[English](README.md) ∙ [简体中文](README.zh.md)*
 
+# Lunxiao 的个人主页
 
-# Corey Chiu 个人网站模板
+这是 [Lunxiao](https://github.com/afetmin) 的个人主页，用来展示 macOS 原生应用、AI 工作流、Web 产品与开源项目。
 
-这是由 [Corey Chiu](https://coreychiu.com) 创建的个人网站模板。
+页面完整沿用 [Corey Chiu Portfolio Template](https://github.com/iAmCorey/coreychiu-portfolio-template) 的结构与视觉设计，并替换为 Lunxiao 的真实公开资料和项目。
 
+## 主要内容
 
-## 特点
-- 使用 TailwindCSS、MagicUI 和 Shadcn/UI 设计的精美界面
-- 响应式布局
-- 明亮/黑暗模式
-- GitHub 贡献日历/GitHub 贡献蛇图
-- 技术图标云
-- 推文网格
-- 访客计数器
-- 博客部分
-- 支持 MDX 和 Markdown
-- RSS 订阅
-- 网站分析（Google Analytics、OpenPanel Analytics、Plausible Analytics 等）
-- SEO 友好
-
+- 个人介绍、GitHub 头像与社交链接
+- GitHub 贡献日历与技术图标云
+- 精选项目与开源仓库
+- 响应式布局与明亮/黑暗模式
+- MDX 博客、RSS、SEO 与分析能力
 
 ## 技术栈
 
-- [Next.js 16](https://nextjs.org/) + [React 19](https://react.dev/)
-- [TailwindCSS](https://tailwindcss.com/)
-- [Shadcn/UI](https://ui.shadcn.com/)
-- [MagicUI](https://magicui.design/)
-- [Phosphor Icons](https://phosphoricons.com/)
+- Next.js 16 + React 19
+- TypeScript + Tailwind CSS
+- Shadcn/UI + MagicUI
+- Phosphor Icons
 
-
-## 演示
-
-https://coreychiu.com
-
-
-## 配置
-
-- `.env.local` - 环境变量
-- `src/config/siteConfig.ts` - 网站配置
-- `src/config/infoConfig.ts` - 个人信息配置
-- `src/config/*.ts` - 各部分的配置
-- `src/content/blog/**.mdx` - 博客
-- `public/github-contribution-snake/*.svg` - GitHub 贡献蛇 SVG 文件（由 GitHub Action 生成并每天更新）
-
-## 运行
+## 本地运行
 
 ```bash
 pnpm install
 pnpm dev
 ```
 
+打开 [http://localhost:3000](http://localhost:3000) 查看页面。
 
+## 配置
 
-## 部署
+- `src/config/infoConfig.ts`：个人信息、社交链接与技术栈
+- `src/config/projects.ts`：精选项目与开源项目
+- `src/config/siteConfig.ts`：站点地址与导航
+- `.env.local`：站点地址与可选分析服务
 
-### 一键部署
+## 致谢
 
-使用 [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=vercel-examples) 部署示例：
-
-[![使用 Vercel 部署](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/iamcorey/coreychiu-portfolio-template&project-name=coreychiu-portfolio-template&repository-name=coreychiu-portfolio-template)
-
-### 克隆并部署
-
-使用 [pnpm](https://pnpm.io/installation) 执行 [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) 来引导示例：
-
-```bash
-pnpm create next-app --example https://github.com/iamcorey/coreychiu-portfolio-template coreychiu-portfolio-template
-```
-
-然后，在开发模式下运行 Next.js：
-
-```bash
-pnpm dev
-```
-
-使用 [Vercel](https://vercel.com/templates) 将其部署到云端（[文档](https://nextjs.org/docs/app/building-your-application/deploying)）。 
+页面设计与基础实现来自 [Corey Chiu](https://coreychiu.com/) 的开源模板，依照原项目 MIT License 使用。

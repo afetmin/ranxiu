@@ -11,7 +11,8 @@ import {
   Butterfly,
   Pill,
   WechatLogo,
-  DiscordLogo
+  DiscordLogo,
+  RssSimple
 } from '@phosphor-icons/react'
 
 export function CustomIcon({ name, size = 20 }: { name: string; size?: number }) {
@@ -38,6 +39,8 @@ export function CustomIcon({ name, size = 20 }: { name: string; size?: number })
       return <WechatLogo size={size} weight="duotone" />;
     case "discord":
       return <DiscordLogo size={size} weight="duotone" />;
+    case 'rss':
+      return <RssSimple size={size} weight="duotone" />;
     default:
       return null
   }

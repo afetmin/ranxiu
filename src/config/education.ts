@@ -11,12 +11,5 @@ export type EducationItemType = {
   
   
   
-  export const educationList: Array<EducationItemType> = [
-    {
-      school: 'Southern University of Science and Technology',
-      major: 'Computer Science and Technology',
-      logo: 'college',
-      start: '2016',
-      end: '2020'
-    },
-  ]
+  // 公开资料中没有可验证的教育信息，暂不展示。
+  export const educationList: Array<EducationItemType> = []

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, useSyncExternalStore } from "react";
 import { useTheme } from "next-themes";
 import {
   Cloud,
@@ -63,9 +63,17 @@ export type DynamicCloudProps = {
 
 type IconData = Awaited<ReturnType<typeof fetchSimpleIcons>>;
 
+// 服务端先渲染稳定占位，避免 react-icon-cloud 的随机 canvas id 造成 hydration 不一致。
+const subscribeToClient = () => () => undefined;
+
 export default function IconCloud({ iconSlugs }: DynamicCloudProps) {
   const [data, setData] = useState<IconData | null>(null);
   const { theme } = useTheme();
+  const isClient = useSyncExternalStore(
+    subscribeToClient,
+    () => true,
+    () => false,
+  );
 
   useEffect(() => {
     fetchSimpleIcons({ slugs: iconSlugs }).then(setData);
@@ -78,6 +86,10 @@ export default function IconCloud({ iconSlugs }: DynamicCloudProps) {
       renderCustomIcon(icon, theme || "light"),
     );
   }, [data, theme]);
+
+  if (!isClient) {
+    return <div className="aspect-square w-full" aria-hidden="true" />;
+  }
 
   return (
     // @ts-ignore

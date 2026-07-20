@@ -9,6 +9,8 @@ export type BlogType = {
   author: string
   date: string
   slug: string
+  tags?: string[]
+  categories?: string[]
 }
 
 async function importBlog(
@@ -29,11 +31,11 @@ async function importBlog(
 }
 
 export async function getAllBlogs() {
-  let blogFileNames = await glob('*.mdx', {
+  const blogFileNames = await glob('*.mdx', {
     cwd: './src/content/blog',
   })
 
-  let blogs = await Promise.all(blogFileNames.map(importBlog))
+  const blogs = await Promise.all(blogFileNames.map(importBlog))
 
   return blogs.sort((a, z) => {
     const aDate = a.date ? +new Date(a.date) : 0;
