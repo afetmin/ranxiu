@@ -1,10 +1,10 @@
 🌍 *[English](README.md) ∙ [简体中文](README.zh.md)*
 
-# Lunxiao 的个人主页
+# Ranxiu 的个人主页
 
-这是 [Lunxiao](https://github.com/afetmin) 的个人主页，用来展示 macOS 原生应用、AI 工作流、Web 产品与开源项目。
+这是 [Ranxiu](https://github.com/afetmin) 的个人主页，用来展示 macOS 原生应用、AI 工作流、Web 产品与开源项目。
 
-页面完整沿用 [Corey Chiu Portfolio Template](https://github.com/iAmCorey/coreychiu-portfolio-template) 的结构与视觉设计，并替换为 Lunxiao 的真实公开资料和项目。
+页面完整沿用 [Corey Chiu Portfolio Template](https://github.com/iAmCorey/coreychiu-portfolio-template) 的结构与视觉设计，并替换为 Ranxiu 的真实公开资料和项目。
 
 ## 主要内容
 

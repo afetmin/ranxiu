@@ -1,10 +1,10 @@
 🌍 *[English](README.md) ∙ [简体中文](README.zh.md)*
 
-# Lunxiao Portfolio
+# Ranxiu Portfolio
 
-The personal portfolio of [Lunxiao](https://github.com/afetmin), featuring native macOS apps, AI workflows, web products, and open-source projects.
+The personal portfolio of [Ranxiu](https://github.com/afetmin), featuring native macOS apps, AI workflows, web products, and open-source projects.
 
-The site keeps the structure and visual language of the [Corey Chiu Portfolio Template](https://github.com/iAmCorey/coreychiu-portfolio-template), personalized with Lunxiao's public profile and projects.
+The site keeps the structure and visual language of the [Corey Chiu Portfolio Template](https://github.com/iAmCorey/coreychiu-portfolio-template), personalized with Ranxiu's public profile and projects.
 
 ## Highlights
 

@@ -7,15 +7,15 @@ export * from './activity'
 
 
 // 个人信息
-export const name = 'Lunxiao'
+export const name = 'Ranxiu'
 export const headline = 'Independent developer building native macOS apps, AI workflows, and useful small tools.'
-export const introduction = 'I’m Lunxiao. I turn specific problems into products that work, get used, and keep evolving.'
+export const introduction = 'I’m Ranxiu. I turn specific problems into products that work, get used, and keep evolving.'
 export const email = ''
-export const avatarUrl = 'https://avatars.githubusercontent.com/u/26990977?v=4'
+export const avatarUrl = '/avatar.png'
 export const githubUsername = 'afetmin'
 
 // 关于页面
-export const aboutMeHeadline = 'I’m Lunxiao, an independent developer who keeps turning ideas into working products.'
+export const aboutMeHeadline = 'I’m Ranxiu, an independent developer who keeps turning ideas into working products.'
 export const aboutParagraphs = [
   'I focus on native macOS experiences, AI-assisted workflows, and lightweight web products. I prefer starting with a real need and shipping something people can use instead of leaving an idea as a concept.',
   'Recent work includes TopBrowser, a menu bar browser; TextLens, a translation tool for selected text; FilmFlow, an AI filmmaking workflow; and a reproducible research-to-video pipeline.',

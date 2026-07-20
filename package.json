@@ -2,7 +2,7 @@
   "name": "afetmin-portfolio",
   "version": "1.0.0",
   "private": true,
-  "author": "Lunxiao",
+  "author": "Ranxiu",
   "scripts": {
     "dev": "next dev --webpack",
     "build": "next build --webpack",
