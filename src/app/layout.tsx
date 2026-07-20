@@ -21,6 +21,10 @@ export const metadata: Metadata = {
       'application/rss+xml': `${process.env.NEXT_PUBLIC_SITE_URL}/feed`,
     },
   },
+  // Google Search Console 站点所有权验证
+  verification: {
+    google: 'EhDXoaglBS4xtPhbM3f4Xxo71nF_zRnt5_nRJhxmwCM',
+  },
 }
 
 export default function RootLayout({
