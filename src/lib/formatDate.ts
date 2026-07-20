@@ -4,7 +4,7 @@ export function formatDate(dateString: string) {
     ? `${dateString}T00:00:00Z`
     : dateString
 
-  return new Date(normalizedDate).toLocaleDateString('zh-CN', {
+  return new Date(normalizedDate).toLocaleDateString('en-US', {
     day: 'numeric',
     month: 'long',
     year: 'numeric',

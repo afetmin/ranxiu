@@ -13,7 +13,7 @@ export async function GET() {
 
   const feed = new Feed({
     title: author.name,
-    description: `${name} 的技术文章与实践记录`,
+    description: `${name}'s writing on software and building products`,
     author,
     id: siteUrl,
     link: siteUrl,

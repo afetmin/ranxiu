@@ -57,7 +57,7 @@ export default async function Home() {
         <div className="mx-auto flex flex-col max-w-xl gap-6 lg:max-w-none my-4 py-8 border-t border-muted">
           <h2 className="flex flex-row items-center justify-start gap-2 text-xl font-semibold tracking-tight md:text-3xl opacity-80 mb-4">
             <CustomIcon name='github' size={28}/>
-            开源项目
+            Open Source
           </h2>
           <ul
             role="list"
@@ -73,7 +73,7 @@ export default async function Home() {
             rel="noreferrer"
             className="flex flex-row items-center text-sm font-semibold text-primary hover:underline"
           >
-            查看全部 GitHub 项目
+            View all GitHub projects
             <ChevronRightIcon className="ml-1 h-4 w-4 stroke-current" />
           </Link>
         </div>
@@ -93,7 +93,7 @@ export default async function Home() {
             href="/blogs"
             className="flex flex-row items-center text-sm font-semibold text-primary hover:underline"
           >
-            查看全部文章
+            View all posts
             <ChevronRightIcon className="ml-1 h-4 w-4 stroke-current" />
           </Link>
         </div>

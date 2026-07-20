@@ -10,38 +10,38 @@ type NavItemType = {
 
 export const footerItems: Array<NavItemType> = [
   {
-    name: '首页',
+    name: 'Home',
     href: '/'
   },
   {
-    name: '关于',
+    name: 'About',
     href: '/about'
   },
   {
-    name: '项目',
+    name: 'Projects',
     href: '/projects'
   },
   {
-    name: '文章',
+    name: 'Writing',
     href: '/blogs'
   }
 ]
 
 export const navItems: Array<NavItemType> = [
   {
-    name: '首页',
+    name: 'Home',
     href: '/'
   },
   {
-    name: '关于',
+    name: 'About',
     href: '/about'
   },
   {
-    name: '项目',
+    name: 'Projects',
     href: '/projects'
   },
   {
-    name: '文章',
+    name: 'Writing',
     href: '/blogs'
   }
 ]

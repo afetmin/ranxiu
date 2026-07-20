@@ -1,6 +1,6 @@
 // friends
-export const friendsHeadLine = '朋友们'
-export const friendsIntro = '一些有趣的人。'
+export const friendsHeadLine = 'Friends'
+export const friendsIntro = 'A few interesting people.'
 
 
 // friends

@@ -12,8 +12,8 @@ import SocialLinks from '@/components/about/SocialLinks'
 
 
 export const metadata: Metadata = {
-  title: '关于',
-  description: `关于 ${name}、正在做的项目与关注的技术方向。`,
+  title: 'About',
+  description: `About ${name}, the projects I’m building, and the technologies I care about.`,
 }
 
 export default function About() {
@@ -24,7 +24,7 @@ export default function About() {
           <div className="max-w-xs px-2.5 lg:max-w-none">
             <Image
               src={avatarUrl}
-              alt={`${name} 的头像`}
+              alt={`${name}'s avatar`}
               width={512}
               height={512}
               sizes="(min-width: 1024px) 32rem, 20rem"

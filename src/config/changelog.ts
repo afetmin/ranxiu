@@ -1,6 +1,6 @@
 // changelog
-export const changelogHeadLine = '网站更新'
-export const changelogIntro = '这个个人主页的更新记录。'
+export const changelogHeadLine = 'Site Updates'
+export const changelogIntro = 'A running log of changes to this portfolio.'
 
 
 // changelog

@@ -22,7 +22,7 @@ function Blog({ blog }: { blog: BlogType }) {
           {formatDate(blog.date)}
         </Card.Eyebrow>
         <Card.Description>{blog.description}</Card.Description>
-        <Card.Cta>阅读文章</Card.Cta>
+        <Card.Cta>Read article</Card.Cta>
       </Card>
       <Card.Eyebrow
         as="time"
@@ -36,7 +36,7 @@ function Blog({ blog }: { blog: BlogType }) {
 }
 
 export const metadata: Metadata = {
-  title: '文章',
+  title: 'Writing',
   description:
     blogIntro
 }

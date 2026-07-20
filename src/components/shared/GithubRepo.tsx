@@ -13,7 +13,7 @@ export function GithubRepo() {
       className="group flex flex-row  justify-start items-center text-md font-medium transition hover:text-teal-500 dark:text-zinc-200 dark:hover:text-teal-500"
     >
       <GithubLogo size={18} weight="duotone" />
-      <span className="sr-only">访问 Lunxiao 的 GitHub</span>
+      <span className="sr-only">Visit Lunxiao on GitHub</span>
     </Link>
   )
 }

@@ -189,7 +189,7 @@ function Avatar({
     >
       <Image
         src={avatarUrl}
-        alt={`${name} 的头像`}
+        alt={`${name}'s avatar`}
         width={large ? 64 : 36}
         height={large ? 64 : 36}
         sizes={large ? '4rem' : '2.25rem'}
