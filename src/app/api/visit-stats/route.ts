@@ -1,65 +1,80 @@
-import { NextResponse } from 'next/server';
+import { NextResponse } from "next/server";
 
-const OPENPANEL_API_URL = 'https://api.openpanel.dev';
-const OPENPANEL_CLIENT_ID = process.env.NEXT_PUBLIC_OPENPANEL_CLIENT_ID;
-const OPENPANEL_SECRET_ID = process.env.OPENPANEL_API_SECRET_ID;
-const OPENPANEL_PROJECT_ID = process.env.OPENPANEL_PROJECT_ID;
+type ExportResponse = {
+  meta?: {
+    totalCount?: number;
+  };
+};
+
 export async function GET() {
+  const apiUrl = process.env.OPENPANEL_API_URL;
+  const readClientId = process.env.OPENPANEL_READ_CLIENT_ID;
+  const readClientSecret = process.env.OPENPANEL_READ_CLIENT_SECRET;
+  const projectId = process.env.OPENPANEL_PROJECT_ID;
+
+  if (!apiUrl || !readClientId || !readClientSecret || !projectId) {
+    return NextResponse.json(
+      { error: "OpenPanel visit stats are not configured" },
+      { status: 503 },
+    );
+  }
+
+  const headers = {
+    "openpanel-client-id": readClientId,
+    "openpanel-client-secret": readClientSecret,
+  };
+
   try {
     // 获取总访问数据
-    const response = await fetch(`${OPENPANEL_API_URL}/export/events?projectId=${OPENPANEL_PROJECT_ID}&event=screen_view`, {
-      headers: {
-        'openpanel-client-id': OPENPANEL_CLIENT_ID!,
-        'openpanel-client-secret': OPENPANEL_SECRET_ID!,
-      },
+    const totalParams = new URLSearchParams({
+      projectId,
+      event: "screen_view",
+    });
+    const response = await fetch(`${apiUrl}/export/events?${totalParams}`, {
+      headers,
+      cache: "no-store",
     });
 
-
-    // console.log('response: ', response)
     if (!response.ok) {
-      throw new Error('Failed to fetch visit stats');
+      throw new Error("Failed to fetch total visit stats");
     }
 
-
-    const data = await response.json();
-    // console.log('data: ', data)
-    const totalUV = data?.meta?.totalCount;
-
+    const data = (await response.json()) as ExportResponse;
+    const totalUV = data.meta?.totalCount ?? 0;
 
     // 获取今日访问数据
-    // 昨天的 yyyy-MM-dd
     const today = new Date();
-    const yesterday = new Date(today);
-    yesterday.setDate(yesterday.getDate() - 1);
-    const yesterdayStr = yesterday.toISOString().split('T')[0];
-
-    // 今天的 yyyy-MM-dd
     const todayStr = today.toISOString().split('T')[0];
-    const todayResponse = await fetch(`${OPENPANEL_API_URL}/export/events?projectId=${OPENPANEL_PROJECT_ID}&event=screen_view&start=${yesterdayStr}&end=${todayStr}`, {
-      headers: {
-        'openpanel-client-id': OPENPANEL_CLIENT_ID!,
-        'openpanel-client-secret': OPENPANEL_SECRET_ID!,
-      },
+    const tomorrow = new Date(today);
+    tomorrow.setUTCDate(tomorrow.getUTCDate() + 1);
+    const tomorrowStr = tomorrow.toISOString().split("T")[0];
+    const todayParams = new URLSearchParams({
+      projectId,
+      event: "screen_view",
+      start: todayStr,
+      end: tomorrowStr,
     });
 
-    // console.log('todayResponse: ', todayResponse)
+    const todayResponse = await fetch(
+      `${apiUrl}/export/events?${todayParams}`,
+      { headers, cache: "no-store" },
+    );
+
     if (!todayResponse.ok) {
-      throw new Error('Failed to fetch visit stats');
+      throw new Error("Failed to fetch today's visit stats");
     }
 
-    const todayData = await todayResponse.json();
-    // console.log('todayData: ', todayData)
-    const dailyUV = todayData?.meta?.totalCount;
+    const todayData = (await todayResponse.json()) as ExportResponse;
+    const dailyUV = todayData.meta?.totalCount ?? 0;
 
     return NextResponse.json({
       totalUV,
       dailyUV,
     });
-  } catch (error) {
-    // console.error('Error fetching visit stats:', error);
+  } catch {
     return NextResponse.json(
-      { error: 'Failed to fetch visit stats' },
-      { status: 500 }
+      { error: "Failed to fetch visit stats" },
+      { status: 502 },
     );
   }
 }

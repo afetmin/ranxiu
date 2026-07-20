@@ -17,6 +17,8 @@ export default function OpenPanelAnalytics() {
 
   return (
     <OpenPanelComponent
+      apiUrl="/api/op"
+      scriptUrl="/api/op/op1.js"
       clientId={clientId}
       trackScreenViews={true}
       trackAttributes={true}

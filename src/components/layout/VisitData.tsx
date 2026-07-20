@@ -9,7 +9,8 @@ type VisitStats = {
 }
 
 export default function VisitData() {
-  const isConfigured = Boolean(process.env.NEXT_PUBLIC_OPENPANEL_CLIENT_ID);
+  const isConfigured =
+    process.env.NEXT_PUBLIC_OPENPANEL_VISIT_STATS_ENABLED === 'true';
   const [stats, setStats] = useState<VisitStats>({
     totalUV: '-',
     dailyUV: '-',
@@ -21,11 +22,12 @@ export default function VisitData() {
     const fetchVisitStats = async () => {
       try {
         const response = await fetch('/api/visit-stats');
+        if (!response.ok) return;
+
         const data = await response.json();
-        // console.log('data: ', data)
         setStats(data);
-      } catch (error) {
-        console.error('Error fetching visit stats:', error);
+      } catch {
+        // 网络暂时不可用时保留当前展示值，等待下次刷新。
       }
     };
 
