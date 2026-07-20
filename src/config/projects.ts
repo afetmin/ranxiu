@@ -19,6 +19,14 @@ export type ProjectItemType = {
 // 精选项目
 export const projects: Array<ProjectItemType> = [
   {
+    name: 'FlashSeal',
+    description: 'An encrypted, self-destructing text and image sharing tool built on Cloudflare Pages, Functions, and KV.',
+    link: { href: 'www.flashseal.space', label: 'FlashSeal' },
+    category: ['Web App'],
+    techStack: ['TypeScript', 'Cloudflare'],
+    tags: ['Privacy', 'Encryption', 'Cloudflare'],
+  },
+  {
     name: 'TopBrowser',
     description: 'A lightweight macOS menu bar browser built with WebKit.',
     link: { href: 'github.com/afetmin/TopBrowser', label: 'TopBrowser' },
@@ -34,58 +42,52 @@ export const projects: Array<ProjectItemType> = [
     techStack: ['SwiftUI'],
     tags: ['macOS', 'SwiftUI', 'AI'],
   },
-  {
-    name: 'FilmFlow',
-    description: 'A visual, editable, and reusable AI filmmaking workflow for scripts, storyboards, keyframes, and video.',
-    link: { href: 'github.com/afetmin/FilmFlow', label: 'FilmFlow' },
-    category: ['Web App'],
-    techStack: ['TypeScript'],
-    tags: ['AI Video', 'Workflow', 'TypeScript'],
-  },
-  {
-    name: 'FlashSeal',
-    description: 'An encrypted, self-destructing text and image sharing tool built on Cloudflare Pages, Functions, and KV.',
-    link: { href: 'www.flashseal.space', label: 'FlashSeal' },
-    category: ['Web App'],
-    techStack: ['TypeScript', 'Cloudflare'],
-    tags: ['Privacy', 'Encryption', 'Cloudflare'],
-  },
-  {
-    name: 'AI Job Copilot',
-    description: 'A traceable job-search copilot that analyzes resumes and job descriptions, then suggests improvements through conversation.',
-    link: { href: 'github.com/afetmin/ai-job-copilot', label: 'AI Job Copilot' },
-    category: ['Web App'],
-    techStack: ['Next.js', 'FastAPI', 'ChromaDB'],
-    tags: ['AI', 'Next.js', 'FastAPI'],
-  },
-  {
-    name: 'AutoSort Bookmarks',
-    description: 'Save first and let AI handle the rest: automatic organization and classification for browser bookmarks.',
-    link: { href: 'github.com/afetmin/AutoSort-Bookmarks', label: 'AutoSort Bookmarks' },
-    category: ['Extension'],
-    techStack: ['TypeScript'],
-    tags: ['AI', 'Bookmarks', 'TypeScript'],
-  },
-  {
-    name: 'PixFree',
-    description: 'A queue-based image generation experiment for testing local inference pipelines, with a Cloudflare-hosted frontend.',
-    link: { href: 'pixfree-web.pages.dev', label: 'PixFree' },
-    category: ['Web App'],
-    techStack: ['TypeScript', 'Cloudflare Workers'],
-    tags: ['Image AI', 'Queue', 'Cloudflare'],
-  },
-  {
-    name: 'Research to Video',
-    description: 'A reproducible pipeline that turns research goals, reports, or drafts into HyperFrames videos with local narration.',
-    link: { href: 'github.com/afetmin/hv-research-to-video', label: 'Research to Video' },
-    category: ['Developer Tool'],
-    techStack: ['Python'],
-    tags: ['Research', 'Video', 'TTS'],
-  },
 ]
 
 // 开源项目
 export const githubProjects: Array<ProjectItemType> = [
+  {
+    name: 'infinity-photo-wall',
+    description: 'A framework-agnostic infinite photo wall engine with pannable, zoomable, tiled rendering powered by Three.js.',
+    link: { href: 'github.com/afetmin/infinity-photo-wall', label: 'infinity-photo-wall' },
+    gitStars: 0,
+    gitForks: 0,
+  },
+  {
+    name: 'FilmFlow',
+    description: 'A node-based editor for AI filmmaking workflows.',
+    link: { href: 'github.com/afetmin/FilmFlow', label: 'FilmFlow' },
+    gitStars: 1,
+    gitForks: 0,
+  },
+  {
+    name: 'AI Job Copilot',
+    description: 'A traceable job-search copilot for resume analysis, role matching, and conversational review.',
+    link: { href: 'github.com/afetmin/ai-job-copilot', label: 'AI Job Copilot' },
+    gitStars: 0,
+    gitForks: 0,
+  },
+  {
+    name: 'AutoSort Bookmarks',
+    description: 'Save first and let AI automatically organize and classify your browser bookmarks.',
+    link: { href: 'github.com/afetmin/AutoSort-Bookmarks', label: 'AutoSort Bookmarks' },
+    gitStars: 0,
+    gitForks: 0,
+  },
+  {
+    name: 'PixFree',
+    description: 'A queued image generation app for validating local inference pipelines with Cloudflare Workers.',
+    link: { href: 'github.com/afetmin/pixfree', label: 'PixFree' },
+    gitStars: 0,
+    gitForks: 0,
+  },
+  {
+    name: 'Research to Video',
+    description: 'Turn research goals, reports, or manuscripts into reproducible HyperFrames videos with local narration.',
+    link: { href: 'github.com/afetmin/hv-research-to-video', label: 'Research to Video' },
+    gitStars: 0,
+    gitForks: 0,
+  },
   {
     name: 'vue-music-next',
     description: 'A full-featured music player built with the Vue ecosystem and NetEase Cloud Music APIs.',
@@ -99,20 +101,6 @@ export const githubProjects: Array<ProjectItemType> = [
     link: { href: 'github.com/afetmin/musicforprogramming', label: 'musicforprogramming' },
     gitStars: 3,
     gitForks: 1,
-  },
-  {
-    name: 'FilmFlow',
-    description: 'A node-based editor for AI filmmaking workflows.',
-    link: { href: 'github.com/afetmin/FilmFlow', label: 'FilmFlow' },
-    gitStars: 1,
-    gitForks: 0,
-  },
-  {
-    name: 'FlashSeal',
-    description: 'An open-source, encrypted, self-destructing text and image sharing tool.',
-    link: { href: 'github.com/afetmin/FlashSeal', label: 'FlashSeal' },
-    gitStars: 1,
-    gitForks: 0,
   },
   {
     name: 'ebook',
