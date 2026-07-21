@@ -2,7 +2,6 @@ import Link from 'next/link'
 import clsx from 'clsx'
 import { ChevronRightIcon } from 'lucide-react'
 
-
 export function Card<T extends React.ElementType = 'div'>({
   as,
   className,
@@ -28,7 +27,7 @@ Card.Link = function CardLink({
 }: React.ComponentPropsWithoutRef<typeof Link>) {
   return (
     <>
-      <div className="absolute -inset-x-4 -inset-y-6 z-0 scale-95 transition group-hover:scale-100 sm:-inset-x-6 sm:rounded-2xl group-hover:bg-muted/50 " />
+      <div className="absolute -inset-x-4 -inset-y-6 z-0 scale-95 transition group-hover:scale-100 group-hover:bg-muted/50 sm:-inset-x-6 sm:rounded-2xl " />
       <Link {...props}>
         <span className="absolute -inset-x-4 -inset-y-6 z-20 sm:-inset-x-6 sm:rounded-2xl" />
         <span className="relative z-10">{children}</span>
@@ -40,6 +39,7 @@ Card.Link = function CardLink({
 Card.Title = function CardTitle<T extends React.ElementType = 'h2'>({
   as,
   href,
+  className,
   children,
 }: Omit<React.ComponentPropsWithoutRef<T>, 'as' | 'href'> & {
   as?: T
@@ -48,19 +48,28 @@ Card.Title = function CardTitle<T extends React.ElementType = 'h2'>({
   let Component = as ?? 'h2'
 
   return (
-    <Component className="text-base font-semibold tracking-normal">
+    <Component
+      className={clsx('text-base font-semibold tracking-normal', className)}
+    >
       {href ? <Card.Link href={href}>{children}</Card.Link> : children}
     </Component>
   )
 }
 
 Card.Description = function CardDescription({
+  className,
   children,
 }: {
+  className?: string
   children: React.ReactNode
 }) {
   return (
-    <p className="relative z-10 mt-2 text-sm text-muted-foreground">
+    <p
+      className={clsx(
+        'relative z-10 mt-2 text-sm text-muted-foreground',
+        className,
+      )}
+    >
       {children}
     </p>
   )
@@ -70,7 +79,7 @@ Card.Cta = function CardCta({ children }: { children: React.ReactNode }) {
   return (
     <div
       aria-hidden="true"
-      className="relative z-10 mt-4 flex items-center text-sm font-medium text-primary"
+      className="relative z-10 mt-auto flex items-center pt-4 text-sm font-medium text-primary"
     >
       {children}
       <ChevronRightIcon className="ml-1 h-4 w-4 stroke-current" />
