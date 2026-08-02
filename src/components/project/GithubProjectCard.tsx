@@ -27,13 +27,13 @@ export function GithubProjectCard({ project, titleAs }: { project: ProjectItemTy
 
         <div className="relative z-10 mt-auto pt-4">
           <div className='flex flex-row items-center gap-2 text-xs font-semibold opacity-80'>
-            { project.gitStars && (
+            {(project.gitStars ?? 0) > 0 && (
               <>
                 <Star size={16} weight="duotone" /> 
                 {project.gitStars}
               </>
             )}
-            { project.gitForks && (
+            {(project.gitForks ?? 0) > 0 && (
               <>
                 <GitFork size={16} weight="duotone" /> 
                 {project.gitForks}
@@ -45,6 +45,7 @@ export function GithubProjectCard({ project, titleAs }: { project: ProjectItemTy
           href={utmLink}
           target='_blank'
           rel='noopener noreferrer'
+          aria-label={`View ${project.name} on GitHub (opens in a new tab)`}
           className='absolute inset-0 z-20'>
           <ArrowRight size={32} weight="duotone" className="absolute bottom-6 right-4 h-4 w-4 group-hover:text-primary group-hover:cursor-pointer" />
         </Link>

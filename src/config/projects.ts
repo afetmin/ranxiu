@@ -47,10 +47,38 @@ export const projects: Array<ProjectItemType> = [
 // 开源项目
 export const githubProjects: Array<ProjectItemType> = [
   {
+    name: 'AgentPager',
+    description: 'Turn an idle Android phone into a live status terminal for Codex agents.',
+    link: { href: 'github.com/afetmin/AgentPager', label: 'AgentPager' },
+    gitStars: 14,
+    gitForks: 1,
+  },
+  {
+    name: 'recordly-voiceover',
+    description: 'A Codex skill for voice-cloned product demos, captions, Recordly editing, and verified exports.',
+    link: { href: 'github.com/afetmin/recordly-voiceover', label: 'recordly-voiceover' },
+    gitStars: 0,
+    gitForks: 0,
+  },
+  {
+    name: 'SwiftPixelGrid',
+    description: 'A native SwiftUI package for expressive 3×3 pixel animations on iOS and macOS.',
+    link: { href: 'github.com/afetmin/SwiftPixelGrid', label: 'SwiftPixelGrid' },
+    gitStars: 2,
+    gitForks: 0,
+  },
+  {
+    name: 'skillctl',
+    description: 'Control which agent skills enter the model context.',
+    link: { href: 'github.com/afetmin/skillctl', label: 'skillctl' },
+    gitStars: 0,
+    gitForks: 0,
+  },
+  {
     name: 'infinity-photo-wall',
     description: 'A framework-agnostic infinite photo wall engine with pannable, zoomable, tiled rendering powered by Three.js.',
     link: { href: 'github.com/afetmin/infinity-photo-wall', label: 'infinity-photo-wall' },
-    gitStars: 0,
+    gitStars: 1,
     gitForks: 0,
   },
   {
