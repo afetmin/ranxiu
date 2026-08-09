@@ -3,7 +3,7 @@ import { Container } from '@/components/layout/Container'
 import SocialLinks from '@/components/home/SocialLinks'
 import { headline, introduction } from '@/config/infoConfig'
 import { ProjectCard } from '@/components/project/ProjectCard'
-import { GithubProjectCard } from '@/components/project/GithubProjectCard'
+import { GithubProjectList } from '@/components/project/GithubProjectList'
 import { projectHeadLine, projectIntro, projects, githubProjects, blogHeadLine, blogIntro, techIcons } from '@/config/infoConfig'
 import GithubContributions from '@/components/home/GithubCalendar'
 import { CustomIcon } from '@/components/shared/CustomIcon'
@@ -59,14 +59,11 @@ export default async function Home() {
             <CustomIcon name='github' size={28}/>
             Open Source
           </h2>
-          <ul
-            role="list"
+          <GithubProjectList
+            projects={githubProjects}
+            titleAs="h3"
             className="grid grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2 md:grid-cols-3"
-          >
-            {githubProjects.map((project) => (
-              <GithubProjectCard key={project.name} project={project} titleAs='h3'/>
-            ))}
-          </ul>
+          />
           <Link
             href="https://github.com/afetmin?tab=repositories"
             target="_blank"

@@ -4,7 +4,7 @@ import { SimpleLayout } from '@/components/layout/SimpleLayout'
 import { projectHeadLine, projectIntro, projects, githubProjects } from '@/config/infoConfig'
 
 import { ProjectCard } from '@/components/project/ProjectCard'
-import { GithubProjectCard } from '@/components/project/GithubProjectCard'
+import { GithubProjectList } from '@/components/project/GithubProjectList'
 import { CustomIcon } from '@/components/shared/CustomIcon'
 
 export const metadata: Metadata = {
@@ -31,14 +31,11 @@ export default function Projects() {
             <CustomIcon name='github' size={28}/>
             Open Source
           </h2>
-          <ul
-            role="list"
+          <GithubProjectList
+            projects={githubProjects}
+            titleAs="h3"
             className="grid grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2 md:grid-cols-3"
-          >
-            {githubProjects.map((project) => (
-              <GithubProjectCard key={project.name} project={project} titleAs='h3'/>
-            ))}
-          </ul>
+          />
         </div>
     </SimpleLayout>
   )
